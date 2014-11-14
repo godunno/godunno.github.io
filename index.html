@@ -38,7 +38,6 @@
 							<li><a href="#para-alunos" class="anchorLink">Para alunos</a></li>
 							<li><a href="#para-escola" class="anchorLink">Para escolas</a></li>
 						</ul>
-						<a href="sign_in" class="login">Login</a>
 					</div>
 				</section>
 			
@@ -178,14 +177,19 @@
 				<h2>Pronto para começar a usar o Dunno?</h2>
 				<p class="intro">Em breve alunos e professores poderão colocar o Dunno em suas vidas! Deixe seu email e assim que lançarmos você será um dos primeiros a utilizar o Dunno.</p>
 				<div class="bt-call-wrapper">
-					<form action="" method="" class="mail-field">
-							<input type="text" name="Nome" id="nome" class="form-text" placeholder="Deixe seu email">
-							<select class="form-select">
-								</option><option value="0">Sou Professor</option>
-								</option><option value="0">Sou Aluno</option>
-								</option><option value="0">Sou Gestor</option>
+          <h2 id="after-conversion" class="hidden">Obrigado!</h2>
+					<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" id="conversion-form" class="mail-field">
+							<input type="email" name="email" id="email" class="form-text required" placeholder="Deixe seu email" required>
+							<input type="hidden" name="identificador" value="landing-page">
+							<input type="hidden" name="token_rdstation" value="e4d8d50949044f8e9cf6c8ff8773d5ef">
+							<select name="cargo" class="form-select">
+								<option value="professor">Sou Professor</option>
+								<option value="aluno">Sou Aluno</option>
+								<option value="gestor">Sou Gestor</option>
 							</select>
-							<input type="button" class="form-submit" value="Enviar" />
+              <input type="submit" class="form-submit" id="cf_submit" value="Enviar" />
+              <img src="img/ajax-loader.gif" id="ajax-loader" alt="Enviando..." />
+
 							<div class="clearfix"></div>
 					</form>
 				</div>
@@ -215,24 +219,32 @@
 			</div>
 		</footer>	
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/jquery.maskedinput.min.js"></script>
+    <!-- Add RD Station -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="//rdstation-static.s3.amazonaws.com/js/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="//rdstation-static.s3.amazonaws.com/js/jquery.form/2.02/jquery.form.js"></script>
+    <script type="text/javascript" src="//rdstation-static.s3.amazonaws.com/js/rd/1.2/rdlps.min.js"></script>
+
+    <!-- Add our scripts and libs -->
+    <!-- script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script -->
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/conversion.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
 
 		<!-- Add fancyBox -->
 		<link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 		<script type="text/javascript" src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 		
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
     </body>
 </html>
