@@ -491,6 +491,9 @@ header {
   	-moz-animation-name: fadein;
   	opacity: 1;
 }
+#after-conversion {
+  color: #1CC678;
+}
 @-webkit-keyframes fadein {
   from {
     opacity: 0;
